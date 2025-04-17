@@ -4,6 +4,7 @@ import { createTicket } from '../api/ticketAPI';
 import { TicketData } from '../interfaces/TicketData';
 import { UserData } from '../interfaces/UserData';
 import { retrieveUsers } from '../api/userAPI';
+import auth from '../utils/auth';
 
 const CreateTicket = () => {
   const [newTicket, setNewTicket] = useState<TicketData | undefined>(
@@ -57,7 +58,12 @@ const CreateTicket = () => {
     const { name, value } = e.target;
     setNewTicket((prev) => (prev ? { ...prev, [name]: value } : undefined));
   }
-
+  
+  const isLoggedin = auth.loggedIn();
+  if (!isLoggedin) {
+    return null
+  }
+  
   return (
     <>
       <div className='container'>
