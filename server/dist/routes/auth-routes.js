@@ -3,7 +3,7 @@ import { User } from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 export const login = async (req, res) => {
-    // TODO: If the user exists and the password is correct, return a JWT token
+    // If the user exists and the password is correct, return a JWT token
     // Extract the username and password from the request body
     const { username, password } = req.body;
     // Find the user by username

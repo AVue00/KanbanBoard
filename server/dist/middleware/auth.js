@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-// TODO: verify the token exists and add the user data to the request object
+// Verifies the token exists and adds the user data to the request object
 export const authenticateToken = (req, res, next) => {
     // Get authorization header from request
     const authHeader = req.headers.authorization;
